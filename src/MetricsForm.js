@@ -19,6 +19,9 @@ export const MetricsForm = (props) => {
             <input type="checkbox" name="sleep"/>
             <label for="sleep">Sleep hours</label>
             <br/>
+            <input type="checkbox" name="skincare"/>
+            <label for="skincare">Skincare</label>
+            <br/>
             <label>
                 <input type="text" name="custom" placeholder="Other"/>
             </label>

@@ -42,6 +42,8 @@ export const Body = () => {
             "water": metricsForm.elements["water"].checked,
             "exercise": metricsForm.elements["exercise"].checked,
             "sleep": metricsForm.elements["sleep"].checked,
+            "skincare": metricsForm.elements["skincare"].checked,
+            
             };
 
         for (const [key, value] of Object.entries(formResults)) {
