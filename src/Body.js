@@ -36,7 +36,10 @@ export const Body = () => {
         const metricsForm = document.getElementById("metrics-form");
         console.log(metricsForm)
         const formResults = {
-            "steps": metricsForm.elements["steps"].value,
+            "steps": metricsForm.elements["steps"].checked,
+            "water": metricsForm.elements["water"].checked,
+            "exercise": metricsForm.elements["exercise"].checked,
+            "sleep": metricsForm.elements["sleep"].checked,
 
             };
         console.log(formResults["steps"])
