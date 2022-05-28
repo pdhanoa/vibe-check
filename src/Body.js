@@ -11,6 +11,7 @@ export const Body = () => {
     const [intro1Visibility, setIntro1Visibility] = useState(true);
     const [intro2Visibility, setIntro2Visibility] = useState(false);
     const [homeVisibility, setHomeVisibility] = useState(false);
+    const metrics = []
 
     /*
     Called with a button push on first intro page (when name is inputted)
@@ -34,16 +35,24 @@ export const Body = () => {
     */
     const processMetricsForm = () => {
         const metricsForm = document.getElementById("metrics-form");
-        console.log(metricsForm)
+        const customMetric = metricsForm.elements["custom"].value;
+
         const formResults = {
             "steps": metricsForm.elements["steps"].checked,
             "water": metricsForm.elements["water"].checked,
             "exercise": metricsForm.elements["exercise"].checked,
             "sleep": metricsForm.elements["sleep"].checked,
-
             };
-        console.log(formResults["steps"])
-        console.log("yay! you did it!")
+
+        for (const [key, value] of Object.entries(formResults)) {
+            if(value) { // if an element is checked in the form
+                metrics.push(key)
+            }
+        }
+        if(customMetric) {
+            metrics.push(customMetric)
+        }
+        console.log(metrics)
     }
     
 
