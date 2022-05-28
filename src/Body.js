@@ -11,6 +11,8 @@ export const Body = () => {
     const [intro1Visibility, setIntro1Visibility] = useState(true);
     const [intro2Visibility, setIntro2Visibility] = useState(false);
     const [homeVisibility, setHomeVisibility] = useState(false);
+    const [name, setName] = useState("");
+    const [username, setUsername] = useState("");
     const metrics = []
 
     /*
@@ -60,9 +62,9 @@ export const Body = () => {
 
     return(
         <>
-        <Intro1 visibility = {intro1Visibility} changeVisibility = {introPageChange}/>
+        <Intro1 visibility = {intro1Visibility} changeVisibility = {introPageChange} setName = {setName} setUsername = {setUsername}/>
         <Intro2 visibility = {intro2Visibility} changeVisibility = {introHomeChange} processMetricsForm = {processMetricsForm}/>
-        <Home visibility = {homeVisibility} />
+        <Home visibility = {homeVisibility} username = {username} name = {name} />
         </>
     )
 }
