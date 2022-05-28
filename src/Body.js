@@ -27,13 +27,23 @@ export const Body = () => {
         setIntro2Visibility(false);
         setHomeVisibility(true);
     }
+
+    /*
+    Takes the data from the metrics form about what the user checked (wants to track)
+    and pushes it to an array (which would be pushed to backend for that user)
+    */
+    const processMetricsForm = () => {
+        const metricsForm = document.getElementById("list-form");
+
+        console.log("yay! you did it!")
+    }
     
 
     return(
         <>
         <p>welcome</p>
         <Intro1 visibility = {intro1Visibility} changeVisibility = {introPageChange}/>
-        <Intro2 visibility = {intro2Visibility} changeVisibility = {introHomeChange}/>
+        <Intro2 visibility = {intro2Visibility} changeVisibility = {introHomeChange} processMetricsForm = {processMetricsForm}/>
         <Home visibility = {homeVisibility} />
         </>
     )
