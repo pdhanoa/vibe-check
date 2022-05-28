@@ -60,7 +60,6 @@ export const Body = () => {
 
     return(
         <>
-        <p>welcome</p>
         <Intro1 visibility = {intro1Visibility} changeVisibility = {introPageChange}/>
         <Intro2 visibility = {intro2Visibility} changeVisibility = {introHomeChange} processMetricsForm = {processMetricsForm}/>
         <Home visibility = {homeVisibility} />
