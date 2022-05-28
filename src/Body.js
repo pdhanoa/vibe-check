@@ -33,8 +33,13 @@ export const Body = () => {
     and pushes it to an array (which would be pushed to backend for that user)
     */
     const processMetricsForm = () => {
-        const metricsForm = document.getElementById("list-form");
+        const metricsForm = document.getElementById("metrics-form");
+        console.log(metricsForm)
+        const formResults = {
+            "steps": metricsForm.elements["steps"].value,
 
+            };
+        console.log(formResults["steps"])
         console.log("yay! you did it!")
     }
     

@@ -19,8 +19,10 @@ export const MetricsForm = (props) => {
             <input type="checkbox" name="sleep"/>
             <label for="sleep">Sleep hours</label>
             <br/>
-            
-
+            <input type="checkbox" name="other"/>
+            <label for="other"><input type="text" placeholder="Other"/></label>
+            <br/>
+            {/* additional custom habits? */}
             <button onClick={() => {props.onSubmit(); props.changePages();}}>Submit</button>
         </form>
         </>
