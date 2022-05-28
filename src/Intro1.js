@@ -1,20 +1,38 @@
 
 
 export const Intro1 = (props) => {
+    const onSubmit = () => {
+        const nameForm = document.getElementById("name-form");
+        let user = nameForm.elements["username"].value;
+        let name = nameForm.elements["name"].value;
+        // weird behavior with url
+        if(!user) {
+            alert("Please enter username.")
+        }
+        else if(!name) {
+            alert("Please enter name.")
+        }
+        else {
+            props.setName(name);
+            props.setUsername(user);
+            props.changeVisibility();
+        }
+    }
+
     if(props.visibility) {
         return(
             <>
-            <form action="intro2.js" method="POST">
+            <form id="name-form">
                 <p class="name" id="username-box">
                     Enter your username:
                 </p> 
-                <input type="text"></input>
+                <input type="text" name="username"></input>
 
                 <p class="name">
                     What's your name?
                 </p>
-                <input type="text"></input>
-                <button  onClick={props.changeVisibility}>Next:</button>
+                <input type="text" name="name"></input>
+                <button onClick={onSubmit}>Next:</button>
             </form>
             </>
         )
