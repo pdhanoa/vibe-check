@@ -2,12 +2,13 @@
 Comment
 */
 
+import { MetricsForm } from './MetricsForm.js';
+
 export const Intro2 = (props) => {
     if(props.visibility) {
         return(
             <>
-            <p>hi2</p>
-            <button onClick={props.changeVisibility}>change pages</button>
+                <MetricsForm onSubmit = {props.processMetricsForm} changePages = {props.changeVisibility}/>
             </>
         )
     }
