@@ -4,7 +4,7 @@ Component that holds the main content of the app
 
 import { Intro1 } from './Intro1.js';
 import { Intro2 } from './Intro2.js';
-import { Home } from './Home.js';
+import { Home, dictToList } from './Home.js';
 import { useState } from 'react';
 import { addData, useData, setData } from './utilities/firebase.js';
 
@@ -16,11 +16,10 @@ import { addData, useData, setData } from './utilities/firebase.js';
         const [data, loading, error] = useData('/');
         if(error) return <h1>{error}</h1>;
         if(loading) return <h1>wait...</h1>;
-        
-        let users = Object.keys(data["users"]);
-        console.log(props.username)
-        for(let i = 0; i < users.length; i++) {
-            if(props.username == users[i]) {
+        let dictData = dictToList(data["users"]);
+
+        for(let i = 0; i < dictData.length; i++) {
+            if(props.username == Object.keys(dictData[i])[0]) {
                 newUser = false;
             }
         }
