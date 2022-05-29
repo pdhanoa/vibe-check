@@ -22,14 +22,18 @@ export const Body = () => {
     */
     const introPageChange = () => {
         let newUser = true;
-        console.log(data);
-        console.log(Object.keys(data["users"]));
-
-        for (user in Object.keys(data["users"])) {
-            if (username == user) {
+        let users = Object.keys(data["users"]);
+        console.log(users);
+        console.log(users[0])
+        console.log(username)
+        for(let i = 0; i < users.length; i++) {
+            console.log("hello");
+            if(username == users[i]) {
+                console.log(username);
                 newUser = false;
             }
         }
+
         // should probably change this so that it checks for if the user exists
         // if the user exists, switch to home page (skip page 2)
 
@@ -104,7 +108,7 @@ export const Body = () => {
 
     return(
         <>
-        <Intro1 visibility = {intro1Visibility} changeVisibility = {introPageChange} setName = {setName} setUsername = {setUsername}/>
+        <Intro1 visibility = {intro1Visibility} changeVisibility = {introPageChange} setName = {setName} username = {username} setUsername = {setUsername}/>
         <Intro2 visibility = {intro2Visibility} changeVisibility = {introHomeChange} processMetricsForm = {processMetricsForm}/>
         <Home visibility = {homeVisibility} username = {username} name = {name} />
         </>

@@ -2,7 +2,13 @@
 First page where user is required to enter username and name.
 */
 
+import { useEffect } from "react";
+
 export const Intro1 = (props) => {
+    // useEffect(() => {
+    //     props.changeVisibility();
+    // }, [props.username])
+
     const onSubmit = () => {
         const nameForm = document.getElementById("name-form");
         let user = nameForm.elements["username"].value;
@@ -15,7 +21,7 @@ export const Intro1 = (props) => {
             alert("Please enter name.")
         }
         else {
-            props.setName(name);
+            props.setName(name); 
             props.setUsername(user);
             props.changeVisibility();
         }
