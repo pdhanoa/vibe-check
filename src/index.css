@@ -15,3 +15,8 @@ code {
 button {
   margin-top: 50px;
 }
+
+#navbar {
+  float: left;
+  list-style-type: none;
+}
