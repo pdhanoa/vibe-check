@@ -88,8 +88,6 @@ export const Home = (props) => {
          }
     }
     else {
-        console.log("hello")
-        console.log(props.visibility)
         if(props.visibility) {
             return(
                 <>
