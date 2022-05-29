@@ -1,5 +1,7 @@
 import React from 'react';
 
+// Resources page component
+
 const Resources = () => {
     return (
         <div>

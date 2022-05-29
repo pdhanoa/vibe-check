@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+
+// Make a navbar component.
+
 const Navbar = () => {
     return (
-        <div>
+        <div id="navbar">
             <li>
                 <Link to="/calendar">Calendar</Link>
             </li>

@@ -20,10 +20,10 @@ function App() {
       <Router>
       <Navbar />
       <Routes>
-        <Route path='/' exact component={Intro1} />
-        <Route path='/calendar' component={Calendar} />
-        <Route path='/goals' component={Goals} />
-        <Route path='/resources' component={Resources}/>
+        <Route path='/' exact element={<Intro1 />} />
+        <Route path='/calendar' element={<Calendar />} />
+        <Route path='/goals' element={<Goals />} />
+        <Route path='/resources' element={<Resources/>}/>
       </Routes>
       </Router>
       {/* <Navigation

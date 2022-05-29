@@ -1,5 +1,7 @@
 import React from 'react';
 
+// Calendar page component
+
 const Calendar = () => {
     return (
         <div>
