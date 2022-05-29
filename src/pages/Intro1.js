@@ -1,10 +1,10 @@
 
 
-export const Intro1 = (props) => {
-    if(props.visibility) {
+const Intro1 = () => {
+    // if(props.visibility) {
         return(
             <>
-            <form action="intro2.js" method="POST">
+            <form action="../intro2.js" method="POST">
                 <p class="name" id="username-box">
                     Enter your username:
                 </p> 
@@ -14,9 +14,11 @@ export const Intro1 = (props) => {
                     What's your name?
                 </p>
                 <input type="text"></input>
-                <button  onClick={props.changeVisibility}>Next:</button>
+                {/* <button  onClick={props.changeVisibility}>Next:</button> */}
             </form>
             </>
         )
-    }
+    // }
 }
+
+export default Intro1;

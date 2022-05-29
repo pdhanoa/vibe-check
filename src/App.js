@@ -6,6 +6,7 @@ import Calendar from './pages/calendar.js';
 import Goals from './pages/goals.js';
 import Resources from './pages/resources.js'
 import Title from './Title.js';
+import Intro1 from './pages/Intro1.js';
 import React from 'react';
 import Navbar from "./components/navbar.js"
 
@@ -19,7 +20,7 @@ function App() {
       <Router>
       <Navbar />
       <Routes>
-        {/* <Route path='/' exact component={Home} /> */}
+        <Route path='/' exact component={Intro1} />
         <Route path='/calendar' component={Calendar} />
         <Route path='/goals' component={Goals} />
         <Route path='/resources' component={Resources}/>

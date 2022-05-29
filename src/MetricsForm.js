@@ -27,7 +27,7 @@ export const MetricsForm = (props) => {
             </label>
             <br/>
             {/* additional custom habits? */}
-            <button onClick={() => {props.onSubmit(); props.changePages();}}>Submit</button>
+            {/* <button onClick={() => {props.onSubmit(); props.changePages();}}>Submit</button> */}
         </form>
         </>
     )
