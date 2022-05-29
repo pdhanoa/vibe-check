@@ -1,6 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import { Body } from './Body.js';
+<<<<<<< HEAD
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
@@ -17,14 +17,15 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+=======
+import Title from './Title.js';
+>>>>>>> d9dfec345ddc4e8e9dd918f4a6f90ae93ab4dd43
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <Body/>
-      </header>
+      <Title/>
+      <Body/>
     </div>
   );
 }
