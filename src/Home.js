@@ -32,10 +32,76 @@ export const Home = (props) => {
     // so that we can put it in the daily form
     let customVal = false;
     let customIndex = -1;
-    for(let i = 0; i < metrics.length; i++) {
-        if(metrics[i] !== "skincare" && metrics[i] !== "exercise" && metrics[i] !== "steps" && metrics[i] !== "water" && metrics[i] !== "sleep") {
-            customVal = true;
-            customIndex = i;
+    if(metrics) {
+        for(let i = 0; i < metrics.length; i++) {
+            if(metrics[i] !== "skincare" && metrics[i] !== "exercise" && metrics[i] !== "steps" && metrics[i] !== "water" && metrics[i] !== "sleep") {
+                customVal = true;
+                customIndex = i;
+            }
+        }
+        if(props.visibility) {
+            return(
+                <>
+                <p>Welcome, {props.name} ({props.username})!</p>
+                <p>Let's log your mood</p>
+                <form id="daily-form">
+                    <p id="mood-box">How do you feel on a scale of 1-100?:</p> 
+                    <input class="form-control" type="number" name="mood"></input><br/>
+                    {(metrics.includes("steps")) ? <><p id="steps-box">
+                                                        How many steps did you take today?
+                                                    </p>
+                                                    <input class="form-control" type="number" name="steps"></input> <br/></> : ``}
+                    {(metrics.includes("sleep")) ? <><p id="sleep-box">
+                                                        How many hours of sleep did you get last night?
+                                                    </p>
+                                                    <input class="form-control" type="number" name="sleep"></input> <br/></> : ``}
+                    {(metrics.includes("water")) ? <><p id="water-box">
+                                                        How many glasses of water did you drink today?
+                                                    </p>
+                                                    <input class="form-control" type="number" name="water"></input> <br/></> : ``}
+                    {(metrics.includes("exercise")) ? <><p id="exercise-box">
+                                                        Did you exercise today?
+                                                    </p>
+                                                    <select name="exercise">
+                                                        <option value={true}>Yes</option>
+                                                        <option value={false}>No</option>
+                                                    </select> <br/></> : ``}
+                    {(metrics.includes("skincare")) ? <><p id="skincare-box">
+                                                        Did you do your skincare routine today?
+                                                    </p>
+                                                    <select name="skincare">
+                                                        <option value={true}>Yes</option>
+                                                        <option value={false}>No</option>
+                                                    </select> <br/></> : ``}
+                    {(customVal) ? <><p id="custom-box">
+                                                        Did you do "{metrics[customIndex]}" today?
+                                                    </p>
+                                                    <select name="custom">
+                                                        <option value={true}>Yes</option>
+                                                        <option value={false}>No</option>
+                                                    </select> <br/></> : ``}
+                    <button onClick={() => {}}>Submit</button>
+                </form>
+                </>
+    
+            )
+         }
+    }
+    else {
+        console.log("hello")
+        console.log(props.visibility)
+        if(props.visibility) {
+            return(
+                <>
+                <p>Welcome, {props.name} ({props.username})!</p>
+                <p>Let's log your mood</p>
+                <form id="daily-form">
+                    <p id="mood-box">How do you feel on a scale of 1-100?:</p> 
+                    <input class="form-control" type="number" name="mood"></input><br/>
+                    <button onClick={() => {}}>Submit</button>
+                </form>
+                </>
+                )
         }
     }
     
@@ -45,51 +111,5 @@ export const Home = (props) => {
     // exercise, skincare, and custom are boolean values
     // TO-DO: submit function!!! it's empty lol
     // submit should push a calendar for some date to Firebase for that user
-    if(props.visibility) {
-        return(
-            <>
-            <p>Welcome, {props.name} ({props.username})!</p>
-            <p>Let's log your mood</p>
-            <form id="daily-form">
-                <p id="mood-box">How do you feel on a scale of 1-100?:</p> 
-                <input class="form-control" type="number" name="mood"></input><br/>
-                {(metrics.includes("steps")) ? <><p id="steps-box">
-                                                    How many steps did you take today?
-                                                </p>
-                                                <input class="form-control" type="number" name="steps"></input> <br/></> : ``}
-                {(metrics.includes("sleep")) ? <><p id="sleep-box">
-                                                    How many hours of sleep did you get last night?
-                                                </p>
-                                                <input class="form-control" type="number" name="sleep"></input> <br/></> : ``}
-                {(metrics.includes("water")) ? <><p id="water-box">
-                                                    How many glasses of water did you drink today?
-                                                </p>
-                                                <input class="form-control" type="number" name="water"></input> <br/></> : ``}
-                {(metrics.includes("exercise")) ? <><p id="exercise-box">
-                                                    Did you exercise today?
-                                                </p>
-                                                <select name="exercise">
-                                                    <option value={true}>Yes</option>
-                                                    <option value={false}>No</option>
-                                                </select> <br/></> : ``}
-                {(metrics.includes("skincare")) ? <><p id="skincare-box">
-                                                    Did you do your skincare routine today?
-                                                </p>
-                                                <select name="skincare">
-                                                    <option value={true}>Yes</option>
-                                                    <option value={false}>No</option>
-                                                </select> <br/></> : ``}
-                {(customVal) ? <><p id="custom-box">
-                                                    Did you do "{metrics[customIndex]}" today?
-                                                </p>
-                                                <select name="custom">
-                                                    <option value={true}>Yes</option>
-                                                    <option value={false}>No</option>
-                                                </select> <br/></> : ``}
-                <button onClick={() => {}}>Submit</button>
-            </form>
-            </>
-
-        )
-     }
+    
 }
