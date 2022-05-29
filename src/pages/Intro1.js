@@ -2,12 +2,8 @@
 First page where user is required to enter username and name.
 */
 
-import { useEffect } from "react";
 
 const Intro1 = (props) => {
-    // useEffect(() => {
-    //     props.changeVisibility();
-    // }, [props.username])
 
     const onSubmit = () => {
         const nameForm = document.getElementById("name-form");
