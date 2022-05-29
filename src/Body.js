@@ -25,15 +25,15 @@ import { addData, useData, setData } from './utilities/firebase.js';
             }
         }
 
-        // should probably change this so that it checks for if the user exists
-        // if the user exists, switch to home page (skip page 2)
         if(props.visibility) {
+            // if new user, ask about metrics
             if(newUser) {
                 props.setIntro2Visibility(true);
                 return(
                     <Intro2 visibility = {true} changeVisibility = {props.introHomeChange} processMetricsForm = {props.processMetricsForm}/>
                 );
             }
+            // if the user exists, switch to home page (skip page 2)
             else {
                 props.setHomeVisibility(true);
                 return(
@@ -103,13 +103,16 @@ export const Body = () => {
     const addCalendar = async(metrics) => {
         // check if username exists
 
-        const newCalendar = {
+        const newCalendar = {}
+        newCalendar[`${username}`] = {
             "name": name,
             "metrics": metrics,
-            calendar: {},
-        }
+            "calendar": {},
+        };
+
         try {
-            addData(`/users/${username}`, newCalendar);
+            // used to be `/users/${username}`
+            addData(`/users`, newCalendar);
         } catch (error) {
             alert(error);
         }
