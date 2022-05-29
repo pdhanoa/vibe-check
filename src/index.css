@@ -20,3 +20,13 @@ button {
   float: left;
   list-style-type: none;
 }
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: white;
+  margin-right: 50px;
+  text-decoration: none;
+}
