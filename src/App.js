@@ -17,6 +17,7 @@ import { FaRegCalendarCheck, FaSeedling, FaRegLightbulb, FaLightbulb} from 'reac
 function App() {
   return (
     <div className="App">
+      
       <Router>
       <Navbar />
       <Routes>
@@ -52,6 +53,7 @@ function App() {
               },
             ]}
           /> */}
+          <div id='calendar'></div>
         <Body/>
     </div>
   );
