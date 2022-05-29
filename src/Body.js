@@ -6,6 +6,7 @@ import { Intro1 } from './Intro1.js';
 import { Intro2 } from './Intro2.js';
 import { Home } from './Home.js';
 import { useState } from 'react';
+import { addData } from './utilities/firebase.js';
 
 export const Body = () => {
     const [intro1Visibility, setIntro1Visibility] = useState(true);
@@ -19,6 +20,8 @@ export const Body = () => {
     Called with a button push on first intro page (when name is inputted)
     */
     const introPageChange = () => {
+        // should probably change this so that it checks for if the user exists
+        // if the user exists, switch to home page (skip page 2)
         setIntro1Visibility(false);
         setIntro2Visibility(true);
     }
@@ -57,6 +60,28 @@ export const Body = () => {
             metrics.push(customMetric)
         }
         console.log(metrics)
+        addCalendar(metrics)
+            .then(() => {
+                introHomeChange();
+            });
+    }
+
+    /*
+    Adds a calendar for a new user (if the username is new). Does nothing otherwise
+    */
+    const addCalendar = async(metrics) => {
+        // check if username exists
+
+        const newCalendar = {
+            "name": name,
+            "metrics": metrics,
+            calendar: {},
+        }
+        try {
+            addData(`/users/${username}`, newCalendar);
+        } catch (error) {
+            alert(error);
+        }
     }
     
 

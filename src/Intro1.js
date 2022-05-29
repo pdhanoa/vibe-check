@@ -1,4 +1,6 @@
-
+/*
+First page where user is required to enter username and name.
+*/
 
 export const Intro1 = (props) => {
     const onSubmit = () => {
