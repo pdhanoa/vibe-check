@@ -18,13 +18,16 @@ const Title = () => {
         <Toolbar color="purple">
           <Typography variant="h6">Vibe Check</Typography>
           <li>
-                <Link to="/calendar">Calendar</Link>
+              Calendar
+                {/* <Link to="/calendar">Calendar</Link> */}
             </li>
             <li>
-                <Link to="/goals">Goals</Link>
+                Goals
+                {/* <Link to="/goals">Goals</Link> */}
             </li>
             <li>
-                <Link to="/resources">Resources</Link>
+                Resources
+                {/* <Link to="/resources">Resources</Link> */}
             </li>
         </Toolbar>
       </AppBar>
