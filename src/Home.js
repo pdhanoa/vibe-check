@@ -40,6 +40,12 @@ export const Home = (props) => {
             }
         }
         if(props.visibility) {
+             // change the text here lol the form is the important part
+            // used ternary operators to make a form based on the user-chosen metrics
+            // steps, water, and sleep are number values
+            // exercise, skincare, and custom are boolean values
+            // TO-DO: submit function!!! it's empty lol
+            // submit should push a calendar for some date to Firebase for that user
             return(
                 <>
                 <p>Welcome, {props.name} ({props.username})!</p>
@@ -83,7 +89,6 @@ export const Home = (props) => {
                     <button onClick={() => {}}>Submit</button>
                 </form>
                 </>
-    
             )
          }
     }
@@ -102,12 +107,5 @@ export const Home = (props) => {
                 )
         }
     }
-    
-    // change the text here lol the form is the important part
-    // used ternary operators to make a form based on the user-chosen metrics
-    // steps, water, and sleep are number values
-    // exercise, skincare, and custom are boolean values
-    // TO-DO: submit function!!! it's empty lol
-    // submit should push a calendar for some date to Firebase for that user
     
 }
