@@ -2,7 +2,8 @@
 First page where user is required to enter username and name.
 */
 
-export const Intro1 = (props) => {
+
+const Intro1 = (props) => {
 
     const onSubmit = () => {
         const nameForm = document.getElementById("name-form");
@@ -41,3 +42,5 @@ export const Intro1 = (props) => {
         )
     }
 }
+
+export default Intro1;

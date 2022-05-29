@@ -2,11 +2,16 @@
 Component that holds the main content of the app
 */
 
-import { Intro1 } from './Intro1.js';
+import Intro1 from './pages/Intro1.js';
 import { Intro2 } from './Intro2.js';
 import { Home, dictToList } from './Home.js';
 import { useState } from 'react';
 import { addData, useData, setData } from './utilities/firebase.js';
+// import Resources from './pages/resources.js';
+import  Calendar from './pages/calendar.js';
+import Goals from './pages/goals.js';
+import Resources from './pages/resources.js'
+import Title from './Title.js';
 
     /*
     Called with a button push on first intro page (when name is inputted)
@@ -54,6 +59,11 @@ export const Body = () => {
     const [username, setUsername] = useState("");
     const metrics = []
     const [secondVisibility, setSecondVisibility] = useState(false);
+    const [calendarVisibility, setCalendarVisibility] = useState(false);
+    const [resourcesVisibility, setResourcesVisibility] = useState(false);
+    const [goalsVisibility, setGoalsVisibility] = useState(false);
+
+    // const [data, loading, error] = useData('/');
 
     /*
     Called with a button push on second intro page (when metrics are selected)
@@ -63,9 +73,34 @@ export const Body = () => {
         setHomeVisibility(true);
     }
 
-    const introPageChange = () => {
-        setSecondVisibility(true);
-        setIntro1Visibility(false);
+    // const introPageChange = () => {
+    //     setSecondVisibility(true);
+    //     setIntro1Visibility(false);
+    // }
+    
+    const makeCalendarPageVisible = () => {
+        let function_list = [setIntro1Visibility, setIntro2Visibility, setHomeVisibility, setGoalsVisibility, setResourcesVisibility]
+        function_list.map(func => {
+            func(false);
+        });
+        setCalendarVisibility(true);
+    }
+
+    const makeGoalPageVisible = () => {
+        let function_list = [setIntro1Visibility, setIntro2Visibility, setHomeVisibility, setCalendarVisibility, setResourcesVisibility]
+        function_list.map(func => {
+            func(false);
+        });
+        setGoalsVisibility(true);
+    }
+
+
+    const makeResourcesPageVisible = () => {
+        let function_list = [setIntro1Visibility, setIntro2Visibility, setHomeVisibility, setCalendarVisibility, setGoalsVisibility]
+        function_list.map(func => {
+            func(false);
+        });
+        setResourcesVisibility(true);
     }
 
     /*
@@ -124,8 +159,14 @@ export const Body = () => {
 
     return(
         <>
+        <Title />
         <Intro1 visibility = {intro1Visibility} changeVisibility = {introPageChange} setName = {setName} username = {username} setUsername = {setUsername}/>
         <SecondPage visibility = {secondVisibility} setIntro1Visibility = {setIntro1Visibility} setIntro2Visibility = {setIntro2Visibility} setHomeVisibility = {setHomeVisibility} introHomeChange = {introHomeChange} processMetricsForm = {processMetricsForm} username = {username} name = {name}/>
+        {/* <Calendar visibility = {calendarVisibility} changeVisibility = {makeCalendarPageVisible } processMetricsForm = {processMetricsForm}/>
+        <Goals visibility = {goalsVisibility} changeVisibility = { makeGoalPageVisible} processMetricsForm = {processMetricsForm}/>
+        <Resources visibility = {resourcesVisibility} changeVisibility = { makeResourcesPageVisible} processMetricsForm = {processMetricsForm}/> */}
+         {/* <Intro2 visibility = {intro2Visibility} changeVisibility = {introHomeChange} processMetricsForm = {processMetricsForm}/>
+        <Home visibility = {homeVisibility} username = {username} name = {name} /> */}
         </>
     )
 }
