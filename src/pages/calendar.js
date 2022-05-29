@@ -1,11 +1,17 @@
 import React from 'react';
+import FullCalendar from '@fullcalendar/react' 
+import dayGridPlugin from '@fullcalendar/daygrid'
 
 // Calendar page component
 
 const Calendar = () => {
+
     return (
         <div>
-            <h3>Goats</h3>
+            <FullCalendar
+                plugins={[ dayGridPlugin ]}
+                initialView="dayGridMonth"
+            />
         </div>
     )
 }

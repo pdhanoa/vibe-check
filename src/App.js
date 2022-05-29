@@ -17,9 +17,10 @@ import { FaRegCalendarCheck, FaSeedling, FaRegLightbulb, FaLightbulb} from 'reac
 function App() {
   return (
     <div className="App">
-      
       <Router>
-      <Navbar />
+      <Title />
+
+      {/* <Navbar /> */}
       <Routes>
         <Route path='/' exact element={<Intro1 />} />
         <Route path='/calendar' element={<Calendar />} />
