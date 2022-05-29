@@ -27,10 +27,9 @@ export const Home = (props) => {
         }
     }
     let metrics = currUser[props.username]["metrics"];
-    console.log(metrics);
-    console.log(metrics.includes("steps"));
 
     // getting custom index and boolean for if they entered a custom value
+    // so that we can put it in the daily form
     let customVal = false;
     let customIndex = -1;
     for(let i = 0; i < metrics.length; i++) {
@@ -40,7 +39,12 @@ export const Home = (props) => {
         }
     }
     
-    // console.log("steps" in metrics);
+    // change the text here lol the form is the important part
+    // used ternary operators to make a form based on the user-chosen metrics
+    // steps, water, and sleep are number values
+    // exercise, skincare, and custom are boolean values
+    // TO-DO: submit function!!! it's empty lol
+    // submit should push a calendar for some date to Firebase for that user
     if(props.visibility) {
         return(
             <>

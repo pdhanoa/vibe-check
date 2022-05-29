@@ -10,6 +10,8 @@ import { addData, useData, setData } from './utilities/firebase.js';
 
     /*
     Called with a button push on first intro page (when name is inputted)
+    If username matches something in Firebase, go straight to Home
+    Otherwise, choose metrics (go to Index2)
     */
     const SecondPage = (props) => {
         let newUser = true;
@@ -18,6 +20,7 @@ import { addData, useData, setData } from './utilities/firebase.js';
         if(loading) return <h1>wait...</h1>;
         let dictData = dictToList(data["users"]);
 
+        // checking for username matches in Firebase
         for(let i = 0; i < dictData.length; i++) {
             if(props.username == Object.keys(dictData[i])[0]) {
                 newUser = false;
@@ -43,6 +46,7 @@ import { addData, useData, setData } from './utilities/firebase.js';
     }
 
 export const Body = () => {
+    // idk if all of these visibilities are still necessary but I don't want to remove something we need
     const [intro1Visibility, setIntro1Visibility] = useState(true);
     const [intro2Visibility, setIntro2Visibility] = useState(false);
     const [homeVisibility, setHomeVisibility] = useState(false);
