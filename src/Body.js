@@ -21,7 +21,15 @@ export const Body = () => {
     Called with a button push on first intro page (when name is inputted)
     */
     const introPageChange = () => {
-        newUser = true;
+        let newUser = true;
+        console.log(data);
+        console.log(Object.keys(data["users"]));
+
+        for (user in Object.keys(data["users"])) {
+            if (username == user) {
+                newUser = false;
+            }
+        }
         // should probably change this so that it checks for if the user exists
         // if the user exists, switch to home page (skip page 2)
 
@@ -30,7 +38,8 @@ export const Body = () => {
             setIntro2Visibility(true);
         }
         else {
-            
+            setIntro1Visibility(false);
+            setHomeVisibility(true);
         }
     }
 
