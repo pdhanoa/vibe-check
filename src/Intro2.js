@@ -1,5 +1,5 @@
 /*
-Comment
+Second page for new users to select metrics they would like to track.
 */
 
 import { MetricsForm } from './MetricsForm.js';
