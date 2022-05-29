@@ -6,7 +6,7 @@ import { Intro1 } from './Intro1.js';
 import { Intro2 } from './Intro2.js';
 import { Home } from './Home.js';
 import { useState } from 'react';
-import { addData } from './utilities/firebase.js';
+import { addData, useData, setData } from './utilities/firebase.js';
 
 export const Body = () => {
     const [intro1Visibility, setIntro1Visibility] = useState(true);
@@ -15,15 +15,23 @@ export const Body = () => {
     const [name, setName] = useState("");
     const [username, setUsername] = useState("");
     const metrics = []
+    const [data, loading, error] = useData('/');
 
     /*
     Called with a button push on first intro page (when name is inputted)
     */
     const introPageChange = () => {
+        newUser = true;
         // should probably change this so that it checks for if the user exists
         // if the user exists, switch to home page (skip page 2)
-        setIntro1Visibility(false);
-        setIntro2Visibility(true);
+
+        if(newUser) {
+            setIntro1Visibility(false);
+            setIntro2Visibility(true);
+        }
+        else {
+            
+        }
     }
 
     /*
