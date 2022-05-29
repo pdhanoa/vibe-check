@@ -2,17 +2,17 @@
 Component that holds the main content of the app
 */
 
-import { Intro1 } from './pages/Intro1.js';
+import Intro1 from './pages/Intro1.js';
 import { Intro2 } from './Intro2.js';
 // import { Intro1 } from './pages/Intro1.js';
 import { Home } from './Home.js';
 import { useState } from 'react';
 import { addData, useData, setData } from './utilities/firebase.js';
 // import Resources from './pages/resources.js';
-import Calendar from './pages/calendar.js';
-import { Goals } from './pages/goals.js';
-import { Resources }from './pages/resources.js'
-// import Title from './Title.js';
+import  Calendar from './pages/calendar.js';
+import Goals from './pages/goals.js';
+import Resources from './pages/resources.js'
+import Title from './Title.js';
 
 export const Body = () => {
     const [intro1Visibility, setIntro1Visibility] = useState(true);
@@ -142,11 +142,12 @@ export const Body = () => {
 
     return(
         <>
+        <Title />
         <Intro1 visibility = {intro1Visibility} changeVisibility = {introPageChange} setName = {setName} username = {username} setUsername = {setUsername}/>
-        <Intro2 visibility = {intro2Visibility} changeVisibility = {introHomeChange} processMetricsForm = {processMetricsForm}/>
-        <Calendar visibility = {calendarVisibility} changeVisibility = {makeCalendarPageVisible } processMetricsForm = {processMetricsForm}/>
+         <Intro2 visibility = {intro2Visibility} changeVisibility = {introHomeChange} processMetricsForm = {processMetricsForm}/>
+        {/* <Calendar visibility = {calendarVisibility} changeVisibility = {makeCalendarPageVisible } processMetricsForm = {processMetricsForm}/>
         <Goals visibility = {goalsVisibility} changeVisibility = { makeGoalPageVisible} processMetricsForm = {processMetricsForm}/>
-        <Resources visibility = {resourcesVisibility} changeVisibility = { makeResourcesPageVisible} processMetricsForm = {processMetricsForm}/>
+        <Resources visibility = {resourcesVisibility} changeVisibility = { makeResourcesPageVisible} processMetricsForm = {processMetricsForm}/> */}
         <Home visibility = {homeVisibility} username = {username} name = {name} />
         </>
     )

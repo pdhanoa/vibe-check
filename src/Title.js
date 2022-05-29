@@ -16,18 +16,15 @@ const Title = () => {
       <AppBar position="fixed" style={{ background: " #b786f7" }}>
 
         <Toolbar color="purple">
-          <Typography variant="h6">Vibe Check</Typography>
+          <Typography variant="h6"><a href="/home">Vibe Check</a></Typography>
           <li>
-              Calendar
-                {/* <Link to="/calendar">Calendar</Link> */}
+              <a href="/calendar">Calendar</a>
             </li>
             <li>
-                Goals
-                {/* <Link to="/goals">Goals</Link> */}
+              <a href="/goals">Goals</a>
             </li>
             <li>
-                Resources
-                {/* <Link to="/resources">Resources</Link> */}
+              <a href="/resources">Resources</a>
             </li>
         </Toolbar>
       </AppBar>
