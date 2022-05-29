@@ -8,6 +8,41 @@ import { Home } from './Home.js';
 import { useState } from 'react';
 import { addData, useData, setData } from './utilities/firebase.js';
 
+    /*
+    Called with a button push on first intro page (when name is inputted)
+    */
+    const SecondPage = (props) => {
+        let newUser = true;
+        const [data, loading, error] = useData('/');
+        if(error) return <h1>{error}</h1>;
+        if(loading) return <h1>wait...</h1>;
+        
+        let users = Object.keys(data["users"]);
+        console.log(props.username)
+        for(let i = 0; i < users.length; i++) {
+            if(props.username == users[i]) {
+                newUser = false;
+            }
+        }
+
+        // should probably change this so that it checks for if the user exists
+        // if the user exists, switch to home page (skip page 2)
+        if(props.visibility) {
+            if(newUser) {
+                props.setIntro2Visibility(true);
+                return(
+                    <Intro2 visibility = {true} changeVisibility = {props.introHomeChange} processMetricsForm = {props.processMetricsForm}/>
+                );
+            }
+            else {
+                props.setHomeVisibility(true);
+                return(
+                    <Home visibility = {true} username = {props.username} name = {props.name}/>
+                );
+            }
+        }
+    }
+
 export const Body = () => {
     const [intro1Visibility, setIntro1Visibility] = useState(true);
     const [intro2Visibility, setIntro2Visibility] = useState(false);
@@ -15,37 +50,7 @@ export const Body = () => {
     const [name, setName] = useState("");
     const [username, setUsername] = useState("");
     const metrics = []
-    const [data, loading, error] = useData('/');
-
-    /*
-    Called with a button push on first intro page (when name is inputted)
-    */
-    const introPageChange = () => {
-        let newUser = true;
-        let users = Object.keys(data["users"]);
-        console.log(users);
-        console.log(users[0])
-        console.log(username)
-        for(let i = 0; i < users.length; i++) {
-            console.log("hello");
-            if(username == users[i]) {
-                console.log(username);
-                newUser = false;
-            }
-        }
-
-        // should probably change this so that it checks for if the user exists
-        // if the user exists, switch to home page (skip page 2)
-
-        if(newUser) {
-            setIntro1Visibility(false);
-            setIntro2Visibility(true);
-        }
-        else {
-            setIntro1Visibility(false);
-            setHomeVisibility(true);
-        }
-    }
+    const [secondVisibility, setSecondVisibility] = useState(false);
 
     /*
     Called with a button push on second intro page (when metrics are selected)
@@ -53,6 +58,11 @@ export const Body = () => {
     const introHomeChange = () => {
         setIntro2Visibility(false);
         setHomeVisibility(true);
+    }
+
+    const introPageChange = () => {
+        setSecondVisibility(true);
+        setIntro1Visibility(false);
     }
 
     /*
@@ -109,8 +119,7 @@ export const Body = () => {
     return(
         <>
         <Intro1 visibility = {intro1Visibility} changeVisibility = {introPageChange} setName = {setName} username = {username} setUsername = {setUsername}/>
-        <Intro2 visibility = {intro2Visibility} changeVisibility = {introHomeChange} processMetricsForm = {processMetricsForm}/>
-        <Home visibility = {homeVisibility} username = {username} name = {name} />
+        <SecondPage visibility = {secondVisibility} setIntro1Visibility = {setIntro1Visibility} setIntro2Visibility = {setIntro2Visibility} setHomeVisibility = {setHomeVisibility} introHomeChange = {introHomeChange} processMetricsForm = {processMetricsForm} username = {username} name = {name}/>
         </>
     )
 }
