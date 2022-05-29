@@ -73,10 +73,10 @@ export const Body = () => {
         setHomeVisibility(true);
     }
 
-    // const introPageChange = () => {
-    //     setSecondVisibility(true);
-    //     setIntro1Visibility(false);
-    // }
+    const introPageChange = () => {
+        setSecondVisibility(true);
+        setIntro1Visibility(false);
+    }
     
     const makeCalendarPageVisible = () => {
         let function_list = [setIntro1Visibility, setIntro2Visibility, setHomeVisibility, setGoalsVisibility, setResourcesVisibility]
